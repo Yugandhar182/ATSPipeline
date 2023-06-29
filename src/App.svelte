@@ -1,141 +1,115 @@
 <script>
-	import { onMount } from "svelte";
+	import { onMount, createEventDispatcher } from "svelte";
+	import { afterUpdate } from 'svelte';
 	import "bootstrap/dist/css/bootstrap.min.css";
-	let todos = [];
-	let selectedTodo = null; // To keep track of the selected todo
+	let candidates = [];
+	let modalOpen = false;
+	let selectedCandidate = null;
   
-	onMount(async () => {
+	const dispatch = createEventDispatcher();
+  
+	async function fetchData() {
 	  try {
-		const response = await fetch("https://api.recruitly.io/api/candidateshare/hire7fb9dbc603bb493ba102df5e00091710?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77");
+		const response = await fetch(
+		  "https://api.recruitly.io/api/candidate?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77"
+		);
 		const data = await response.json();
-		console.log(data.candidates);
-		if (typeof data === "object" && data !== null && Array.isArray(data.candidates)) {
-		  todos = data.candidates.map(item => ({
-			reference: item.reference,
-			label: item.label,
-			email: item.email,
-			mobile: item.mobile,
-			id :item.id,
-			ownerName:item.ownerName,
-			headline:item.headline,
-			createdOn:item.createdOn
+		console.log(data); // Log the data to inspect its format
+  
+		if (Array.isArray(data.data)) {
+		  candidates = data.data.map((candidate) => ({
+			id:candidate.id,
+			reference: candidate.reference,
+			fullName: candidate.fullName,
+			mobile: candidate.mobile,
+			email: candidate.email,
+			address:candidate.address,
+			employer:candidate.employer,
+			jobTitle:candidate.jobTitle,
+			linkedIn:candidate.linkedIn,
+			createdOn:candidate.createdOn,
+			ownerId:candidate.ownerId,
+			ownerName:candidate.ownerName,
+			timeZone:candidate.timeZone
 
- }));
+
+			 }));
 		} else {
-		  console.error("API response is not in the expected format");
+		  console.error("Invalid data format:", data);
 		}
 	  } catch (error) {
-		console.error(error);
+		console.error("Error fetching data:", error);
 	  }
+	}
+  
+	onMount(async () => {
+	  await fetchData();
 	});
   
-	function allowDrop(event) {
-	  event.preventDefault();
+	function openModal(candidate) {
+	  selectedCandidate = candidate;
+	  modalOpen = true;
 	}
   
-	function dragStart(event, todoIndex) {
-	  event.dataTransfer.setData("text/plain", todoIndex.toString());
-	}
-  
-	function drop(event, targetIndex) {
-	  event.preventDefault();
-	  const todoIndex = parseInt(event.dataTransfer.getData("text/plain"), 10);
-	  const draggedTodo = todos[todoIndex];
-	  todos.splice(todoIndex, 1);
-	  todos.splice(targetIndex, 0, draggedTodo);
-	}
-  
-	function showDetails(todo) {
-	  selectedTodo = todo;
+	function closeModal() {
+	  modalOpen = false;
 	}
   </script>
-  
-  
-  
- 
-  
-  <div class="table-responsive">
+ <div class="table-responsive">
 	<div class="table">
 	  <div class="horizontal-table">
-		<div class="card" on:drop="{event => drop(event, 1)}" on:dragover="{allowDrop}">
+		<div class="card">
 		  <label class="card-title text-primary">Review Pending</label>
 		</div>
-		<div class="card" on:drop="{event => drop(event, 1)}" on:dragover="{allowDrop}">
+		<div class="card">
 		  <label class="card-title text-primary">Approved</label>
 		</div>
-		<div class="card" on:drop="{event => drop(event, 1)}" on:dragover="{allowDrop}">
+		<div class="card">
 		  <label class="card-title text-primary">Rejected</label>
 		</div>
-		<div class="card" on:drop="{event => drop(event, 0)}" on:dragover="{allowDrop}">
+		<div class="card">
 		  <label class="card-title text-primary">Shared</label>
-		  {#each todos as todo, index}
-			<div class="vertical-table" draggable="true" on:dragstart="{event => dragStart(event, index)}">
-			  <div class="card">
-				<p>{todo.reference}</p>
-				<p><a href="#Candidate_share" on:click="{() => showDetails(todo)}">{todo.label}</a></p>
-				<p>{todo.email}</p>
-				<p>{todo.mobile}</p>
-			  </div>
-			</div>
-		  {/each}
+		  {#each candidates as candidate, index}
+          <div class="card">
+            <p>{candidate.reference}</p>
+            <p><a on:click="{() => openModal(candidate)}">{candidate.fullName}</a></p>
+            <p>{candidate.mobile}</p>
+          </div>
+          {/each}
 		</div>
-  
-		<div class="card" on:drop="{event => drop(event, 1)}" on:dragover="{allowDrop}">
+		<div class="card">
 		  <label class="card-title text-primary">Viewed</label>
 		</div>
-		<div class="card" on:drop="{event => drop(event, 1)}" on:dragover="{allowDrop}">
+		<div class="card">
 		  <label class="card-title text-primary">Info Request</label>
 		</div>
 	  </div>
+	 
 	</div>
   </div>
   
- 
-  {#if selectedTodo}
-  <div class="popup">
-	<h1 class="left-align" style="color: darkblue;">Name:</h1>
-	<p class="popup-text-top" style=" font: 1.3em sans-serif;"> {selectedTodo.label}</p>
-	<h1 class="left-align" style="color: darkblue;">Reference:</h1>
-	<p class="popup-text" style=" font: 1.3em sans-serif;"> {selectedTodo.reference}</p>
-	<h1 class="left-align" style="color: darkblue;">ID:</h1>
-	<p class="popup-text" style=" font: 1.3em sans-serif;"> {selectedTodo.id}</p>
-	<h1 class="left-align" style="color: darkblue;">ownerName:</h1>
-	<p class="popup-text" style=" font: 1.3em sans-serif;"> {selectedTodo.ownerName}</p>
-	<h1 class="left-align" style="color: darkblue;">headline:</h1>
-	<p class="popup-text"style=" font: 1.3em sans-serif;"> {selectedTodo.headline}</p>
-	<h1 class="left-align" style="color: darkblue;">createdOn:</h1>
-	<p class="popup-text-bottom"style=" font: 1.3em sans-serif;"> {selectedTodo.createdOn}</p>
-	<button class="btn btn-primary" on:click="{() => selectedTodo = null}">Close</button>
-  </div>
+  {#if modalOpen}
+	<div class="modal">
+	  <div class="modal-content">
+		<h3> {selectedCandidate.fullName}</h3>
+		<p>ID:{selectedCandidate.id}</p>
+		<p>Mobile: {selectedCandidate.mobile}</p>
+		<p>Email: {selectedCandidate.email}</p>
+		<p>employer: {selectedCandidate.employer}</p>
+		<p>Job Title:{selectedCandidate.jobTitle}</p>
+		<p>linkedIn: {selectedCandidate.linkedIn}</p>
+		<p>createdOn: {selectedCandidate.createdOn}</p>
+		<p>ownerId: {selectedCandidate.ownerId}</p>
+		<p>timeZone: {selectedCandidate.timeZone}</p>
+		
+		<button style="color: blue;"   on:click="{closeModal}">Close</button>
+	  </div>
+	</div>
   {/if}
-  
- 
   
   <style>
 
-
-
-
-     
 	
-	.left-align{
-  text-align: left;
-  font: 1.5em sans-serif;
-}
-
-	
-		.spacer {
-	margin: 0 2px;
-  }
-  
-	.card {
-	  margin: 10px;
-	  padding: 10px;
-	  border: 1px solid #ccc;
-	  border-radius: 5px;
-	  width: 150px;
-	}
-  
 	.horizontal-table {
 	  display: flex;
 	  flex-direction: row;
@@ -148,18 +122,31 @@
 	  align-items: center;
 	}
   
-	.popup {
-	  position: fixed;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  background-color: #f6f3f4;
-	  padding: 5px;
-	  border-radius: 5px;
-	  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-	  z-index: 999;
-	  height: 80vh;
-	  width: 60vh;
-	}
-	
+	/* Additional styles for the modal */
+	.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+   margin-top:-200vh ; 
+   margin-left:60vh ; 
+   height: 500vh;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    z-index: 999;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+   
+    max-width: 80%;
+    max-height: 800%;
+    overflow: auto;
+  }
   </style>
+  
