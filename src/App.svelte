@@ -72,7 +72,7 @@
 		  {#each candidates as candidate, index}
           <div class="card">
             <p>{candidate.reference}</p>
-            <p><a on:click="{() => openModal(candidate)}">{candidate.fullName}</a></p>
+            <p style="color: blue;" class="why-recruitly-anchor"><a on:click="{() => openModal(candidate)}">{candidate.fullName}</a></p>
             <p>{candidate.mobile}</p>
           </div>
           {/each}
@@ -108,7 +108,9 @@
   {/if}
   
   <style>
-
+  .why-recruitly-anchor {
+    cursor: pointer;
+  }
 	
 	.horizontal-table {
 	  display: flex;
