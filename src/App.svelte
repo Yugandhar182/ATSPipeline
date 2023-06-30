@@ -69,6 +69,8 @@
 
 {#if gridView}
 <div class="table-responsive">
+	
+	
 	<table class="table">
 	  <thead>
 		<tr>
@@ -79,6 +81,8 @@
 		  <th class="card-title text-primary">Mobile</th>
 		</tr>
 	  </thead>
+	
+
 	  <tbody>
 		{#each candidates as candidate, index}
 		<tr>
@@ -130,16 +134,27 @@
 {#if modalOpen}
   <div class="modal">
     <div class="modal-content">
-      <h3> {selectedCandidate.fullName}</h3>
-      <p>ID:{selectedCandidate.id}</p>
-      <p>Mobile: {selectedCandidate.mobile}</p>
-      <p>Email: {selectedCandidate.email}</p>
-      <p>employer: {selectedCandidate.employer}</p>
-      <p>Job Title:{selectedCandidate.jobTitle}</p>
-      <p>linkedIn: {selectedCandidate.linkedIn}</p>
-      <p>createdOn: {selectedCandidate.createdOn}</p>
-      <p>ownerId: {selectedCandidate.ownerId}</p>
-      <p>timeZone: {selectedCandidate.timeZone}</p>
+		<div class="mb-3">
+      <h3 style="color: blue;"> {selectedCandidate.fullName}</h3>
+	</div>
+	<div class="mb-3">
+      <p >ID:{selectedCandidate.id}</p></div>
+	  <div class="mb-3">
+      <p>Mobile: {selectedCandidate.mobile}</p></div>
+	  <div class="mb-3">
+      <p>Email: {selectedCandidate.email}</p></div>
+	  <div class="mb-3">
+      <p>Employer: {selectedCandidate.employer}</p></div>
+	  <div class="mb-3">
+      <p>Job Title:{selectedCandidate.jobTitle}</p></div>
+	  <div class="mb-3">
+      <p>LinkedIn: {selectedCandidate.linkedIn}</p></div>
+	  <div class="mb-3">
+      <p>CreatedOn: {selectedCandidate.createdOn}</p></div>
+	  <div class="mb-3">
+      <p>OwnerId: {selectedCandidate.ownerId}</p></div>
+	  <div class="mb-3">
+      <p>TimeZone: {selectedCandidate.timeZone}</p></div>
       
       <button style="color: blue;" on:click="{closeModal}">Close</button>
     </div>
