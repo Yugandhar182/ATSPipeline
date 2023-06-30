@@ -113,10 +113,10 @@
         <label class="card-title text-primary">Review Pending</label>
       </div>
       <div class="card approved">
-        <label class="card-title text-primary">Approved</label>
+        <label  style="color: darkgreen;"  class="card-title text-primary">Approved</label>
       </div>
       <div class="card rejected">
-        <label class="card-title text-primary">Rejected</label>
+        <label style="color:darkred;" class="card-title text-primary">Rejected</label>
       </div>
       <div class="card shared">
         <label class="card-title text-primary">Shared</label>
@@ -212,8 +212,8 @@
 
 .shared {
 
-  color: white;
-  width: 50%;
+ 
+  width: 40%;
 }
 
 .viewed {
