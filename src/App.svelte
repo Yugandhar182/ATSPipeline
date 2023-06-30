@@ -1,8 +1,6 @@
 <script>
 	import { onMount, createEventDispatcher } from "svelte";
-	import { afterUpdate } from 'svelte';
 	import "bootstrap/dist/css/bootstrap.min.css";
-	let applicants = [];
 	let Details=[];
 	let modalOpen = false;
 	let selectedCandidate = null;
@@ -115,10 +113,10 @@
         <label class="card-title text-primary">Review Pending</label>
       </div>
       <div class="card approved">
-        <label  style="color: darkgreen;"  class="card-title text-primary">Approved</label>
+        <label   style="color: darkgreen;"  class="card-title .text-success">Approved</label>
       </div>
       <div class="card rejected">
-        <label style="color:darkred;" class="card-title text-primary">Rejected</label>
+        <label style="color:darkred;" class="card-title .text-danger">Rejected</label>
       </div>
       <div class="card shared">
         <label class="card-title text-primary">Shared</label>
@@ -149,41 +147,41 @@
       <h3 style="color: blue;">{selectedCandidate.label}</h3>
     </div>
     <div class="mb-3">
-      <p1>ID:</p1>  
-	  <p2> {selectedCandidate.id}</p2>
+      <p1 style="color: blue;">ID:</p1>  
+	  <p2 style="color: darkgreen;"> {selectedCandidate.id}</p2>
 	
     </div>
     <div class="mb-3">
-      <p1>Mobile: </p1>
-	  <p2>{selectedCandidate.mobile}</p2>
+      <p1 style="color: blue;">Mobile: </p1>
+	  <p2 style="color: darkgreen;">{selectedCandidate.mobile}</p2>
     </div>
     <div class="mb-3">
-      <p1>Email: </p1>
-	  <p2>{selectedCandidate.email}</p2>
+      <p1 style="color: blue;">Email: </p1>
+	  <p2 style="color: darkgreen;">{selectedCandidate.email}</p2>
     </div>
     <div class="mb-3">
-      <p1>Employer: </p1>
-	  <p2>{selectedCandidate.employer}</p2>
+      <p1 style="color: blue;">Employer: </p1>
+	  <p2 style="color: darkgreen;">{selectedCandidate.employer}</p2>
     </div>
     <div class="mb-3">
-      <p1>Job Title: </p1>
-	  <p2>{selectedCandidate.jobTitle}</p2>
+      <p1 style="color: blue;">Job Title: </p1>
+	  <p2 style="color: darkgreen;">{selectedCandidate.jobTitle}</p2>
     </div>
     <div class="mb-3">
-      <p1>LinkedIn: </p1>
-	  <p2>{selectedCandidate.linkedIn}</p2>
+      <p1 style="color: blue;">LinkedIn: </p1>
+	  <p2 style="color: darkgreen;">{selectedCandidate.linkedIn}</p2>
     </div>
     <div class="mb-3">
-      <p1>Created On:</p1>
-	  <p2> {selectedCandidate.createdOn}</p2>
+      <p1 style="color: blue;" >Created On:</p1>
+	  <p2 style="color: darkgreen;"> {selectedCandidate.createdOn}</p2>
     </div>
     <div class="mb-3">
-      <p1>Owner ID:</p1>
-	  <p2> {selectedCandidate.ownerId}</p2>
+      <p1 style="color: blue;">Owner ID:</p1>
+	  <p2 style="color: darkgreen;"> {selectedCandidate.ownerId}</p2>
     </div>
     <div class="mb-3">
-      <p1>Time Zone: </p1>
-	  <p2>{selectedCandidate.timeZone}</p2>
+      <p1 style="color: blue;">Time Zone: </p1>
+	  <p2 style="color: darkgreen;">{selectedCandidate.timeZone}</p2>
 
     </div>
     <button style="color: blue;" on:click="{closeModal}">Close</button>
@@ -211,6 +209,7 @@
 .review-pending {
  
   width: 30%;
+
 }
 
 .approved {
@@ -219,13 +218,13 @@
 }
 
 .rejected {
- 
+	
   width: 30%;
 }
 
 .shared {
 
- 
+	
   width: 40%;
 }
 
@@ -241,7 +240,7 @@
   width: 30%;
 }
 
-/* Additional styles for the modal */
+
 .modal {
   position: fixed;
   top: 0;
