@@ -41,6 +41,8 @@
 	  modalOpen = true;
 	  fetchCandidateDetails(candidate.id); // Fetch candidate details based on the ID
 	}
+
+
   
 	function closeModal() {
 	  modalOpen = false;
@@ -96,7 +98,7 @@
       {#each Details as Detail, index}
       <tr>
         <td>{Detail.id}</td>
-        <td>{Detail.label}</td>
+		<a style="color: blue; cursor: pointer;" on:click="{() => openModal(Detail)}">{Detail.label}</a>
         <td>{Detail.reference}</td>
         <td>{Detail.email}</td>
         <td>{Detail.mobile}</td>
