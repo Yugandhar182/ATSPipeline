@@ -149,31 +149,42 @@
       <h3 style="color: blue;">{selectedCandidate.label}</h3>
     </div>
     <div class="mb-3">
-      <p>ID: {selectedCandidate.id}</p>
+      <p1>ID:</p1>  
+	  <p2> {selectedCandidate.id}</p2>
+	
     </div>
     <div class="mb-3">
-      <p>Mobile: {selectedCandidate.mobile}</p>
+      <p1>Mobile: </p1>
+	  <p2>{selectedCandidate.mobile}</p2>
     </div>
     <div class="mb-3">
-      <p>Email: {selectedCandidate.email}</p>
+      <p1>Email: </p1>
+	  <p2>{selectedCandidate.email}</p2>
     </div>
     <div class="mb-3">
-      <p>Employer: {selectedCandidate.employer}</p>
+      <p1>Employer: </p1>
+	  <p2>{selectedCandidate.employer}</p2>
     </div>
     <div class="mb-3">
-      <p>Job Title: {selectedCandidate.jobTitle}</p>
+      <p1>Job Title: </p1>
+	  <p2>{selectedCandidate.jobTitle}</p2>
     </div>
     <div class="mb-3">
-      <p>LinkedIn: {selectedCandidate.linkedIn}</p>
+      <p1>LinkedIn: </p1>
+	  <p2>{selectedCandidate.linkedIn}</p2>
     </div>
     <div class="mb-3">
-      <p>Created On: {selectedCandidate.createdOn}</p>
+      <p1>Created On:</p1>
+	  <p2> {selectedCandidate.createdOn}</p2>
     </div>
     <div class="mb-3">
-      <p>Owner ID: {selectedCandidate.ownerId}</p>
+      <p1>Owner ID:</p1>
+	  <p2> {selectedCandidate.ownerId}</p2>
     </div>
     <div class="mb-3">
-      <p>Time Zone: {selectedCandidate.timeZone}</p>
+      <p1>Time Zone: </p1>
+	  <p2>{selectedCandidate.timeZone}</p2>
+
     </div>
     <button style="color: blue;" on:click="{closeModal}">Close</button>
   </div>
