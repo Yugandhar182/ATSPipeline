@@ -201,7 +201,7 @@
     background-color: rgb(154, 210, 236);
   }
   table {
-    width: 150vh; /* Set the desired width */
+    width: 200vh; /* Set the desired width */
     height: 600px; /* Set the desired height */
   }
 
