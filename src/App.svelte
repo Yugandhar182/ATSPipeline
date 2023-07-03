@@ -84,14 +84,14 @@
 
 {#if gridView}
 <div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="card-title text-primary">ID</th>
-        <th class="card-title text-primary">Full Name</th>
-        <th class="card-title text-primary">Reference</th>
-        <th class="card-title text-primary">Email</th>
-        <th class="card-title text-primary">Mobile</th>
+  <table class= "table table-bordered">
+    <thead >
+      <tr >
+        <th class="table-primary">ID</th>
+        <th class="table-primary">Full Name</th>
+        <th class="table-primary">Reference</th>
+        <th class="table-primary">Email</th>
+        <th class="table-primary">Mobile</th>
       </tr>
     </thead>
     <tbody>
