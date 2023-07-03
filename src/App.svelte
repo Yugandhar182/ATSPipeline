@@ -207,7 +207,8 @@
   }
 
   .modal-header {
-    height: 40px; /* Set the desired height for the modal header */
+    height: 40px;
+    background-color: rgb(203, 240, 40); /* Set the desired height for the modal header */
   }
 
   .why-recruitly-anchor {
