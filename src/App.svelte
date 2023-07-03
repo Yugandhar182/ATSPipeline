@@ -203,7 +203,7 @@
     
   }
   table {
-    width: 150vh; /* Set the desired width */
+    width: 200vh; /* Set the desired width */
     height: 600px; /* Set the desired height */
   }
 
@@ -251,7 +251,30 @@
   .info-request {
     width: 30%;
   }
-
+  .approved .card-title {
+    font-size: 20px;
+    font: 100;
+  }
+  .review-pending .card-title {
+    font-size: 20px;
+    font: 100;
+  }
+  .rejected .card-title {
+    font-size: 20px;
+    font: 100;
+  }
+  .shared .card-title {
+    font-size: 20px;
+    font: 100;
+  }
+  .viewed .card-title {
+    font-size: 20px;
+    font: 100;
+  }
+  .info-request.card-title {
+    font-size: 20px;
+    font: 100;
+  }
   .modal {
     position: fixed;
     top: 0;
@@ -274,8 +297,5 @@
     max-height: 800%;
     overflow: auto;
   }
-  .approved .card-title {
-    font-size: 20px;
-    font: 100;
-  }
+
 </style>
