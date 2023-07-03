@@ -199,10 +199,7 @@
 
 .list-view-button {
     background-color: rgb(154, 210, 236);
-    position: absolute;
-  top: 10px;
-  right: 10px;
-    
+
   }
   table {
     width: 200vh; /* Set the desired width */
