@@ -1,6 +1,8 @@
 <script>
 	import { onMount, createEventDispatcher } from "svelte";
+	import { afterUpdate } from 'svelte';
 	import "bootstrap/dist/css/bootstrap.min.css";
+	let applicants = [];
 	let Details=[];
 	let modalOpen = false;
 	let selectedCandidate = null;
@@ -14,7 +16,7 @@
 	      `https://api.recruitly.io/api/candidate/${candidateId}?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77`
 	    );
 	    const data = await response.json();
-	    console.log(data); // Log the fetched candidate details
+	    console.table(data.table); // Log the fetched candidate details
   
 	    if (typeof data === "object" && data !== null) {
 	      selectedCandidate = {
@@ -143,8 +145,10 @@
 {#if modalOpen}
 <div class="modal">
   <div class="modal-content">
+    <div class="modal-header">
     <div class="mb-3">
       <h3 style="color: blue;">{selectedCandidate.label}</h3>
+    </div>
     </div>
     <div class="mb-3">
       <p1 style="color: blue;">ID:</p1>  
@@ -184,12 +188,15 @@
 	  <p2 style="color: darkgreen;">{selectedCandidate.timeZone}</p2>
 
     </div>
-    <button style="color: blue;" on:click="{closeModal}">Close</button>
+    <button style="color: red;" on:click="{closeModal}">Close</button>
   </div>
 </div>
 {/if}
 
 <style>
+  .modal-header {
+  height: 40px; /* Set the desired height for the modal header */
+}
 .why-recruitly-anchor {
   cursor: pointer;
 }
@@ -253,6 +260,7 @@
   align-items: center;
   justify-content: center;
   z-index: 999;
+
 }
 
 .modal-content {
@@ -263,4 +271,5 @@
   max-height: 800%;
   overflow: auto;
 }
+
 </style>
