@@ -98,7 +98,9 @@
       {#each Details as Detail, index}
       <tr>
         <td>{Detail.id}</td>
-		<a style="color: blue; cursor: pointer;" on:click="{() => openModal(Detail)}">{Detail.label}</a>
+        <td>
+        <a style="color: blue; cursor: pointer;" on:click="{() => openModal(Detail)}">{Detail.label}</a>
+      </td>
         <td>{Detail.reference}</td>
         <td>{Detail.email}</td>
         <td>{Detail.mobile}</td>
@@ -194,6 +196,10 @@
 {/if}
 
 <style>
+   table {
+    width: 150vh; /* Set the desired width */
+    height: 600px; /* Set the desired height */
+  }
   .modal-header {
   height: 40px; /* Set the desired height for the modal header */
 }
