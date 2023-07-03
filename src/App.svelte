@@ -253,7 +253,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 90%;
+    width: 70%;
     margin-top: -250vh;
     margin-left: 60vh;
     height: 600vh;
