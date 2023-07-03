@@ -190,7 +190,7 @@
       <p2 style="color: darkgreen;">{selectedCandidate.timeZone}</p2>
 
     </div>
-    <button style="color: red;" on:click="{closeModal}">Close</button>
+    <button style="  background-color: rgb(237, 78, 117);" on:click="{closeModal}">Close</button>
   </div>
 </div>
 {/if}
@@ -198,10 +198,10 @@
 <style>
 
 .list-view-button {
-  background-color: rgb(186, 184, 121);
+    background-color: rgb(154, 210, 236);
   }
   table {
-    width: 200vh; /* Set the desired width */
+    width: 150vh; /* Set the desired width */
     height: 600px; /* Set the desired height */
   }
 
@@ -253,10 +253,10 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 70%;
-    margin-top: -200vh;
+    width: 90%;
+    margin-top: -250vh;
     margin-left: 60vh;
-    height: 500vh;
+    height: 600vh;
     display: flex;
     align-items: center;
     justify-content: center;
