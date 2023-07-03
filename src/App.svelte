@@ -199,9 +199,11 @@
 
 .list-view-button {
     background-color: rgb(154, 210, 236);
+    margin-right: -50vh;
+    
   }
   table {
-    width: 200vh; /* Set the desired width */
+    width: 150vh; /* Set the desired width */
     height: 600px; /* Set the desired height */
   }
 
@@ -239,6 +241,7 @@
 
   .shared {
     width: 40%;
+  
   }
 
   .viewed {
@@ -253,7 +256,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 70%;
+    width: 90%;
     margin-top: -250vh;
     margin-left: 60vh;
     height: 600vh;
@@ -270,5 +273,9 @@
     max-width: 80%;
     max-height: 800%;
     overflow: auto;
+  }
+  .approved .card-title {
+    font-size: 20px;
+    font: 100;
   }
 </style>
