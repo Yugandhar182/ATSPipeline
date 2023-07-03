@@ -199,7 +199,9 @@
 
 .list-view-button {
     background-color: rgb(154, 210, 236);
-    margin-right: -50vh;
+    position: absolute;
+  top: 10px;
+  right: 10px;
     
   }
   table {
