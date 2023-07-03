@@ -114,7 +114,7 @@
   <div class="table">
     <div class="horizontal-table">
       <div class="card review-pending">
-        <label style="background-color: rgb(243, 108, 84;" class="card border-primary mb-3" >Review Pending</label>
+        <label style="background-color:  rgb(132, 112, 228);" class="card border-primary mb-3" >Review Pending</label>
       </div>
       <div class="card approved">
         <label  style="background-color: rgb(64, 235, 129);" class="card border-primary mb-3"  >Approved</label>
@@ -123,7 +123,7 @@
         <label style="background-color: rgb(243, 108, 84);" class="card border-primary mb-3" >Rejected</label>
       </div>
       <div class="card shared">
-        <label style="background-color: rgb(132, 112, 228);;" class="card border-primary mb-3" >Shared</label>
+        <label style="background-color: rgb(132, 112, 228);" class="card border-primary mb-3" >Shared</label>
         {#each Details as detail, index}
         <div class="card">
           <p>{detail.reference}</p>
