@@ -273,7 +273,7 @@
     font-size: 20px;
     font: 100;
   }
-  .info-request.card-title {
+  .info-request .card-title {
     font-size: 20px;
     font: 100;
   }
