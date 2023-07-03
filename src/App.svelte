@@ -114,16 +114,16 @@
   <div class="table">
     <div class="horizontal-table">
       <div class="card review-pending">
-        <label class="card-title text-primary">Review Pending</label>
+        <label style="background-color: rgb(243, 108, 84;" class="card border-primary mb-3" >Review Pending</label>
       </div>
       <div class="card approved">
-        <label style="color: darkgreen;" class="card-title .text-success">Approved</label>
+        <label  style="background-color: rgb(64, 235, 129);" class="card border-primary mb-3"  >Approved</label>
       </div>
       <div class="card rejected">
-        <label style="color: darkred;" class="card-title .text-danger">Rejected</label>
+        <label style="background-color: rgb(243, 108, 84);" class="card border-primary mb-3" >Rejected</label>
       </div>
       <div class="card shared">
-        <label class="card-title text-primary">Shared</label>
+        <label style="background-color: rgb(132, 112, 228);;" class="card border-primary mb-3" >Shared</label>
         {#each Details as detail, index}
         <div class="card">
           <p>{detail.reference}</p>
@@ -134,10 +134,10 @@
         {/each}
       </div>
       <div class="card viewed">
-        <label class="card-title text-primary">Viewed</label>
+        <label  style="background-color: rgb(132, 112, 228);;" class="card border-primary mb-3" >Viewed</label>
       </div>
       <div class="card info-request">
-        <label class="card-title text-primary">Info Request</label>
+        <label style="background-color: rgb(132, 112, 228);;"  class="card border-primary mb-3;" >Info Request</label>
       </div>
     </div>
   </div>
@@ -198,7 +198,7 @@
 <style>
 
 .list-view-button {
-    background-color: rgb(154, 210, 236);
+    background-color: rgb(159, 226, 243);
  margin-right: 10px;
   }
   table {
